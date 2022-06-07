@@ -1,10 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false"%>
-<c:set var="loginId" value="${pageContext.request.getSession(false)==null ? '' : pageContext.request.session.getAttribute('id')}"/>
-<c:set var="loginOutLink" value="${loginId=='' ? '/login/login' : '/login/logout'}"/>
-<c:set var="loginOut" value="${loginId=='' ? 'Login' : 'ID='+=loginId}"/>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ page import="java.net.URLDecoder"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +32,7 @@
             padding: 0 10px;
             margin-bottom: 10px;
         }
+
         label {
             width:300px;
             height:30px;
@@ -61,6 +59,7 @@
             color:red;
             margin-bottom: 20px;
         }
+
         .sns-chk {
             margin-top : 5px;
         }
@@ -68,13 +67,10 @@
     <title>Register</title>
 </head>
 <body>
-<form action="<c:url value="/register/save"/>" method="post" onsubmit="return formCheck(this)">
+<!-- form action="<c:url value="/register/save"/>" method="POST" onsubmit="return formCheck(this)"-->
+<form:form modelAttribute="user">
     <div class="title">Register</div>
-    <div id="msg" class="msg">
-        <c:if test="${not empty param.msg}">
-            <i class="fa fa-exclamation-circle"> ${URLDecoder.decode(param.msg)}</i>
-        </c:if>
-    </div>
+    <div id="msg" class="msg"><form:errors path="id"/></div>
     <label for="">아이디</label>
     <input class="input-field" type="text" name="id" placeholder="8~12자리의 영대소문자와 숫자 조합">
     <label for="">비밀번호</label>
@@ -84,14 +80,14 @@
     <label for="">이메일</label>
     <input class="input-field" type="text" name="email" placeholder="example@fastcampus.co.kr">
     <label for="">생일</label>
-    <input class="input-field" type="text" name="birth" placeholder="2020/12/31">
+    <input class="input-field" type="text" name="birth" placeholder="2020-12-31">
     <div class="sns-chk">
         <label><input type="checkbox" name="sns" value="facebook"/>페이스북</label>
         <label><input type="checkbox" name="sns" value="kakaotalk"/>카카오톡</label>
         <label><input type="checkbox" name="sns" value="instagram"/>인스타그램</label>
     </div>
     <button>회원 가입</button>
-</form>
+</form:form>
 <script>
     function formCheck(frm) {
         let msg ='';
@@ -99,11 +95,6 @@
             setMessage('id의 길이는 3이상이어야 합니다.', frm.id);
             return false;
         }
-        if(frm.pwd.value.length<3) {
-            setMessage('pwd의 길이는 3이상이어야 합니다.', frm.pwd);
-            return false;
-        }
-
         return true;
     }
     function setMessage(msg, element){

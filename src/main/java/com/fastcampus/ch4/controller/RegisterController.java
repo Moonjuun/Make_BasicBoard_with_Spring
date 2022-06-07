@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.fastcampus.ch4.dao.UserValidator;
 import com.fastcampus.ch4.domain.User;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 @Controller // ctrl+shift+o 자동 import
+// @RequestMapping(value="/register/save", method={RequestMethod.GET, RequsetMethod.POST}) 이렇게도 배열로 사용 가능하다, 겟과 포스트 요청이 가능!
+// 위 방법을 간단하게 쓰는게 PostMapping과 GetMapping이다
 @RequestMapping("/register")
 public class RegisterController {
 
@@ -26,9 +29,9 @@ public class RegisterController {
     public void toDate(WebDataBinder binder) {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         binder.registerCustomEditor(Date.class, new CustomDateEditor(df, false));
-//        binder.setValidator(new UserValidator()); // UserValidator를 WebDataBinder의 로컬 validator로 등록
-        	List<Validator> validatorList = binder.getValidators();
-        	System.out.println("validatorList="+validatorList);
+        binder.setValidator(new UserValidator()); // UserValidator를 WebDataBinder의 로컬 validator로 등록
+        //	List<Validator> validatorList = binder.getValidators();
+        //	System.out.println("validatorList="+validatorList);
     }
 
     @GetMapping("/add")
@@ -37,6 +40,7 @@ public class RegisterController {
     }
 
     @PostMapping("/add")
+    // 1. 유효성 검사
     public String save(@Valid User user, BindingResult result, Model m) throws Exception {
         System.out.println("result="+result);
         System.out.println("user="+user);

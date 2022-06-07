@@ -24,9 +24,9 @@
     </ul>
 </div>
 <div style="text-align:center">
-    <h1>This is HOME</h1>
-    <h1>This is HOME</h1>
-    <h1>This is HOME</h1>
+    <h1>웹 사이트 소개</h1>
+    <h1>스프링 MVC 패턴을 이용해서 만든 게시판</h1>
+    <h1></h1>
 </div>
 </body>
 </html>

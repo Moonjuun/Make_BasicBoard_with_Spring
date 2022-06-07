@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-<!--	<view-controller path="/register/add" view-name="registerForm"/>-->
+<!--	<view-controller path="/register/add" view-name="registerForm"/> Get 밖에 처리 할 수 있음! POST처리 못함-->
 	<context:component-scan base-package="com.fastcampus.ch4"/>
 
 	<view-controller path="/" view-name="index"/>

@@ -8,8 +8,8 @@
 
 ## Progress
 1. DB테이블 생성 (SQL → CRUD)
-2. 2. Mapper XML 작성
-3. 3. DAO 작성 & 테스트
+2. Mapper XML 작성
+3. DAO 작성 & 테스트
 4. Service 작성 & 테스트
 5. 컨트롤러 작성 & 테스트
 6. 뷰(UI) 작성 & 테스트

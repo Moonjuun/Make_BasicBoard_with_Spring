@@ -27,13 +27,13 @@
 * MyBatis
 
 ## Technical Log
-인텔리제이를 처음 사용했습니다. Junit을 통해 간단한 TDD(CRUD)를 사용해보았습니다.
-부트스트랩을 적용해서 프론트엔드에 적용시켰습니다.
-여러 오픈소스르 활용해서 만들어서 큰 어려움은 없었으나 에러가 발생했을 때 해결에 
-많은 어려움을 겪었습니다. 발생한 에러를 정리해서 에러노트를 만들었습니다.
+인텔리제이를 처음 사용했습니다. Junit을 통해 간단한 TDD(CRUD)를 사용해보았습니다.</br>
+부트스트랩을 적용해서 프론트엔드에 적용시켰습니다.</br>
+여러 오픈소스르 활용해서 만들어서 큰 어려움은 없었으나 에러가 발생했을 때 해결에 </br>
+많은 어려움을 겪었습니다. 발생한 에러를 정리해서 에러노트를 만들었습니다.</br>
 
-에러노트
-https://puenti.tistory.com/31?category=971346
-https://puenti.tistory.com/32?category=971346
-https://puenti.tistory.com/34?category=971346
+에러노트</br>
+https://puenti.tistory.com/31?category=971346</br>
+https://puenti.tistory.com/32?category=971346</br>
+https://puenti.tistory.com/34?category=971346</br>
 
